@@ -1,0 +1,42 @@
+<idea-plugin>
+  <id>com.lzy.darksouls.project.note</id>
+  <name>ProjectNotes</name>
+  <version>1.0</version>
+  <vendor email="lizhengyang999@foxmail.com" url="https://blog.csdn.net/dark_souls">dark_souls</vendor>
+
+  <description><![CDATA[
+      本插件主要是为了方便管理项目，可以对项目添加备忘录，方便刚使用idea的人因为创建大量项目，时间长了，忘记工程文件是干什么用的了。<br>
+    ]]></description>
+
+  <change-notes><![CDATA[
+      v1.0：支持导出文件功能，给项目添加备忘录，并且可以通过本插件打开相应的项目。<br>
+    ]]>
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="173.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+    <toolWindow id="ProjectNotes" factoryClass="com.lzy.projectnotes.ui.NoteListWindowFactory" anchor="right" icon="/img/logo.svg"></toolWindow>
+    <applicationService serviceImplementation="com.lzy.projectnotes.Configuration"></applicationService>
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+  </actions>
+
+  <application-components>
+    <component>
+      <interface-class>com.lzy.projectnotes.ProjectNotes</interface-class>
+      <implementation-class>com.lzy.projectnotes.ProjectNotesImpl</implementation-class>
+    </component>
+  </application-components>
+
+</idea-plugin>
